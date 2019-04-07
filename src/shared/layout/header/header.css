@@ -1,0 +1,17 @@
+.ui.menu.xs-mobile {
+  display: none;
+}
+.ui.menu.xs-screen {
+  display: flex;
+  height: 55px;
+  margin-top: 0;
+}
+@media only screen and (max-width: 600px) {
+  .ui.menu.xs-mobile {
+    display: flex;
+  }
+
+  .ui.menu.xs-screen {
+    display: none;
+  }
+}
