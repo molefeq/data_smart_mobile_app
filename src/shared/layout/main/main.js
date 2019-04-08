@@ -3,6 +3,7 @@ import { Route, Switch, withRouter } from "react-router-native";
 import Home from "../../../components/home/home";
 import Register from "../../../components/register/register";
 import Login from "../../../components/login/login";
+import ForgotPassword from "../../../components/forgot-password/forgot-password";
 import PrivateRoute from "../../../common/routing/private-route";
 import authenticationService from '../../services/authentication-service/authentication-service';
 import { Content } from "native-base";
@@ -38,6 +39,7 @@ class Main extends Component {
           <PrivateRoute path="/home" component={Home} />
           <Route path="/login" component={Login} />
           <Route path="/register" component={Register} />
+          <Route path="/forgot-password" component={ForgotPassword} />
         </Switch>
       </Content>
     );

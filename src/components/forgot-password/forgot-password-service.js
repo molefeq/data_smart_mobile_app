@@ -1,4 +1,4 @@
-import API from "../../shared/services/api";
+import API from "../../common/axios/api";
 
 const forgotPasswordService = {
   resetPassword: async username => {

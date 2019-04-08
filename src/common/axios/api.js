@@ -1,5 +1,5 @@
-import axios from 'axios';
+import axios from "axios";
 
 export default axios.create({
-  baseURL: `http://jsonplaceholder.typicode.com/`
+  baseURL: "http://192.168.43.181:5001/api/"
 });

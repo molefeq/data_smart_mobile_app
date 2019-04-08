@@ -4,7 +4,7 @@ import { Text, Form, Item, Input, Label, Button } from 'native-base';
 import { Formik } from "formik";
 import * as Yup from 'yup'
 import loginService from "./loginService";
-import logo from '../../assets/images/logo.png'; // Tell Webpack this JS file uses this image
+import logo from '../../assets/images/logo_white_bg.png'; // Tell Webpack this JS file uses this image
 import { Image, StyleSheet, View } from 'react-native';
 
 const initialValues = {
@@ -30,6 +30,7 @@ class Login extends Component {
 
     this.handleLoginSubmit = this.handleLoginSubmit.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
+    this.goToLocation = this.goToLocation.bind(this);
   };
 
   handleLoginSubmit = async (values, { props = this.props, resetForm, setErrors, setSubmitting }) => {
@@ -70,6 +71,11 @@ class Login extends Component {
     handleChange(e);
     setFieldTouched(name, true);
   }
+
+  goToLocation(location) {
+    this.props.history.push(location);
+  }
+
 
   render() {
 
@@ -119,8 +125,8 @@ class Login extends Component {
                     </Text>
                   ) : null}
                   <View style={styles.forgetPasswordContainer}>
-                    <Text href="/forgot-password" style={styles.forgetPasswordText}>Forgot Password</Text>
-                    <Text href="/register" style={styles.registerText}>Register</Text>
+                    <Text onPress={()=>this.goToLocation('/forgot-password')} style={styles.forgetPasswordText}>Forgot Password</Text>
+                    <Text onPress={()=>this.goToLocation('/register')} style={styles.registerText}>Register</Text>
                   </View>
                 </Form>
                 <View style={styles.loginContainer}>
