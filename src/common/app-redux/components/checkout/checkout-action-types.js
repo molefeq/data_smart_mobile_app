@@ -1,0 +1,1 @@
+export const SET_CHECKOUT_URL = "SET_CHECKOUT_URL";

@@ -10,6 +10,7 @@ const loginService = {
       await authenticationService.authenticate(response);
 
       return response;
+
     } catch (error) {
       if (error.status === 422) {
         return error;

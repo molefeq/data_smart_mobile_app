@@ -1,20 +1,20 @@
-import { AsyncStorage } from 'react-native';
+import { AsyncStorage } from "react-native";
 
 class authenticationService {
-  static isAuthenticated() {
-    const user = this.getUserDetails().then((data) => {
-      return data;
-    });
-    
+  static isUserKnown = false;
+  
+  static isAuthenticated = async () => {
+    const user = await this.getUserDetails();
+
     return Boolean(user) && Boolean(user.token);
   };
 
   static authenticate = async user => {
-    await AsyncStorage.setItem('user', JSON.stringify(user));
+    await AsyncStorage.setItem("user", JSON.stringify(user));
   };
 
   static getUserDetails = async () => {
-    const user = await AsyncStorage.getItem('user');
+    const user = await AsyncStorage.getItem("user");
 
     if (!user) {
       return null;
@@ -56,7 +56,6 @@ class authenticationService {
   static signOut = async () => {
     await AsyncStorage.clear();
   };
-
 }
 
 export default authenticationService;

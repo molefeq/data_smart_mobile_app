@@ -11,17 +11,11 @@ const registerService = {
     }
   },
   countries: async () => {
-    try {
-      const response = await API.get(`ReferenceData/GetCountries`);
-
-      console.log(response);
-      return response.data.map(item => {
-        return { key: item.id, value: item.id, text: item.name };
-      });
-    } catch (error) {
-      console.log(error);
-      return [];
-    }
+    const response = await API.get(`ReferenceData/GetCountries`);
+    
+    return response.data.map(item => {
+      return { key: item.id, value: item.id, text: item.name };
+    });
   }
 };
 

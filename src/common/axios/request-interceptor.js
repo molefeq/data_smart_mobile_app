@@ -1,18 +1,27 @@
 import API from "./api";
-import authenticationService from "../authentication-service/authentication-service";
 
-API.interceptors.request.use(
-  config => {
-    const token = authenticationService.getToken();
+export default {
+  setupRequestInterceptors: store => {
+    API.interceptors.request.use(
+      config => {
+        const state = store.getState();
+        const token =
+          state && state.session && state.session.user
+            ? state.session.user.token
+            : null;
 
-    if (token) {
-      config["Authorization"] = "Bearer " + token;
-    }
+        if (token) {
+          config.headers["Authorization"] = "Bearer " + token;
+        }
 
-    return config;
-  },
-  error => {
-    // Do something with request error
-    return Promise.reject(error);
+        return config;
+      },
+      error => {
+        // Do something with request error
+
+        //store.dispatch({ type: INTERNAL_SERVER_ERROR });
+        return Promise.reject(error);
+      }
+    );
   }
-);
+};

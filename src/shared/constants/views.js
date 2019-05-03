@@ -3,21 +3,21 @@ export const VIEWS = {
       requiresHeader: false
     },
     "/home": {
-      requiresHeader: false
+      requiresHeader: true
     },
     "/": {
-      requiresHeader: false
+      requiresHeader: true
     },
     "/register": {
       requiresHeader: false
     },
-    "/buydata": {
+    "/buy-data": {
       requiresHeader: true
     },
-    "/adddevice": {
+    "/link-device": {
       requiresHeader: true
     },
-    "/devices": {
-      requiresHeader: true
+    "/forgot-password": {
+      requiresHeader: false
     }
   };
